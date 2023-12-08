@@ -3,20 +3,18 @@ const pool = require('../modules/pool')
 
 const router = Router()
 
-router.get('/', (req, res) => {
-  const query = `
-    SELECT * FROM "movies"
+router.get('/', async (req, res) => {
+  try {
+    const result = await pool.query(/*sql*/ `
+      SELECT *
+      FROM "movies"
       ORDER BY "title" ASC;
-  `
-  pool
-    .query(query)
-    .then((result) => {
-      res.send(result.rows)
-    })
-    .catch((err) => {
-      console.log('ERROR: Get all movies', err)
-      res.sendStatus(500)
-    })
+    `)
+    res.send(result.rows)
+  } catch (error) {
+    console.log('ERROR: Get all movies', error)
+    res.sendStatus(500)
+  }
 })
 
 router.post('/', (req, res) => {
