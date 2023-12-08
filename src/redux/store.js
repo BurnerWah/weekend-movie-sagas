@@ -1,5 +1,9 @@
 import axios from 'axios'
-import { applyMiddleware, combineReducers, createStore } from 'redux'
+import {
+  applyMiddleware,
+  combineReducers,
+  legacy_createStore as createStore,
+} from 'redux'
 import logger from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
 import { put, takeEvery } from 'redux-saga/effects'
