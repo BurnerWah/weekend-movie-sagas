@@ -1,4 +1,3 @@
-import axios from 'axios'
 import {
   applyMiddleware,
   combineReducers,
@@ -6,26 +5,7 @@ import {
 } from 'redux'
 import logger from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
-import { put, takeEvery } from 'redux-saga/effects'
-
-// Create the rootSaga generator function
-function* rootSaga() {
-  yield takeEvery('FETCH_MOVIES', fetchAllMovies)
-}
-
-function* fetchAllMovies() {
-  try {
-    // Get the movies:
-    const moviesResponse = yield axios.get('/api/movies')
-    // Set the value of the movies reducer:
-    yield put({
-      type: 'SET_MOVIES',
-      payload: moviesResponse.data,
-    })
-  } catch (error) {
-    console.log('fetchAllMovies error:', error)
-  }
-}
+import rootSaga from './sagas'
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware()
