@@ -17,5 +17,5 @@ function* fetchAllMovies() {
 
 // Create the rootSaga generator function
 export default function* rootSaga() {
-  yield takeEvery('FETCH_MOVIES', fetchAllMovies)
+  yield takeEvery('SAGA/FETCH_MOVIES', fetchAllMovies)
 }
