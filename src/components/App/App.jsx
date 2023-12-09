@@ -1,4 +1,4 @@
-import { CssVarsProvider, Sheet, Typography } from '@mui/joy'
+import { CssBaseline, CssVarsProvider, Sheet, Typography } from '@mui/joy'
 import { Route, HashRouter as Router } from 'react-router-dom'
 import DetailsPage from '../DetailsPage/DetailsPage'
 import MovieList from '../MovieList/MovieList'
@@ -7,6 +7,7 @@ import './App.css'
 function App() {
   return (
     <CssVarsProvider defaultMode="system">
+      <CssBaseline />
       <Sheet>
         <div className="App">
           <Typography level="h1" sx={{ textAlign: 'center' }}>
