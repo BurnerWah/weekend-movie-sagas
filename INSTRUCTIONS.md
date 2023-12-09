@@ -125,7 +125,7 @@ The edit page should have these buttons:
 ### Other Ideas
 
 - [ ] Display the current values in the input (title) and textarea (description) on the Edit Page
-- [ ] Move sagas and reducers out of your `store.js` and into separate files (ideally in `src/redux/reducers/` and `src/redux/sagas/` folders).
+- [x] Move sagas and reducers out of your `store.js` and into separate files (ideally in `src/redux/reducers/` and `src/redux/sagas/` folders).
 - [ ] Allow the user to add a genre to a movie.
 - [ ] Allow the user to remove a genre from a movie.
 - [ ] Only display the top 10 movies, and allow the user to search for movie titles with a search bar on the home page (you can do this on the client side or the server side, server side is a bigger stretch, but good practice).
