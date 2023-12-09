@@ -25,6 +25,21 @@ const movies = (state = [], action) => {
 }
 
 /**
+ * Used to store the movie details returned from the server
+ * @type {import('redux').Reducer<MovieDetail[], SetMovieDetailsAction | ClearMovieDetailsAction>}
+ */
+const movieDetails = (state = [], action) => {
+  switch (action.type) {
+    case 'SET_MOVIE_DETAILS':
+      return action.payload
+    case 'CLEAR_MOVIE_DETAILS':
+      return []
+    default:
+      return state
+  }
+}
+
+/**
  * Used to store the movie genres
  * @type {import('redux').Reducer<Genre[], SetGenresAction>}
  * @param {Genre[]} state
@@ -43,6 +58,7 @@ const store = createStore(
   combineReducers({
     movies,
     genres,
+    movieDetails,
   }),
   // Add sagaMiddleware to our store
   applyMiddleware(sagas, logger),

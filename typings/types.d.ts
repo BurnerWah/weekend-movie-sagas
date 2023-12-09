@@ -10,6 +10,11 @@ interface Movie {
   description: string
 }
 
+interface MovieDetail extends Movie {
+  /** The name of a genre the movie has */
+  genre_name: string
+}
+
 /** Not implemented yet */
 type Genre = unknown
 
@@ -23,11 +28,24 @@ interface ActionWithPayload<T extends string, P> extends Action<T> {
 
 type SetMoviesAction = ActionWithPayload<'SET_MOVIES', Movie[]>
 type SetGenresAction = ActionWithPayload<'SET_GENRES', Genre[]>
+type SetMovieDetailsAction = ActionWithPayload<
+  'SET_MOVIE_DETAILS',
+  MovieDetail[]
+>
+type ClearMovieDetailsAction = Action<'CLEAR_MOVIE_DETAILS'>
 type FetchMoviesSaga = Action<'SAGA/FETCH_MOVIES'>
+type GetMovieDetailsSaga = ActionWithPayload<'SAGA/GET_MOVIE_DETAILS', number>
 
-type Actions = SetMoviesAction | SetGenresAction | FetchMoviesSaga
+type Actions =
+  | SetMoviesAction
+  | SetGenresAction
+  | SetMovieDetailsAction
+  | ClearMovieDetailsAction
+  | FetchMoviesSaga
+  | GetMovieDetailsSaga
 
 interface State {
   movies: Movie[]
   genres: Genre[]
+  movieDetails: MovieDetail[]
 }
