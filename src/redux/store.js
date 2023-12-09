@@ -10,7 +10,11 @@ import rootSaga from './sagas'
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware()
 
-// Used to store movies returned from the server
+/**
+ * Used to store movies returned from the server
+ * @type {import('redux').Reducer<Movie[], SetMoviesAction>}
+ * @param {Movie[]} state
+ */
 const movies = (state = [], action) => {
   switch (action.type) {
     case 'SET_MOVIES':
@@ -20,7 +24,11 @@ const movies = (state = [], action) => {
   }
 }
 
-// Used to store the movie genres
+/**
+ * Used to store the movie genres
+ * @type {import('redux').Reducer<Genre[], SetGenresAction>}
+ * @param {Genre[]} state
+ */
 const genres = (state = [], action) => {
   switch (action.type) {
     case 'SET_GENRES':

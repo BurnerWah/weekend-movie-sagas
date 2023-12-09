@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import './MovieList.css'
 
 function MovieList() {
+  /** @type {import('redux').Dispatch<Actions>} */
   const dispatch = useDispatch()
-  const movies = useSelector((store) => store.movies)
+
+  const movies = useSelector((/** @type {State} */ store) => store.movies)
 
   useEffect(() => {
     dispatch({ type: 'SAGA/FETCH_MOVIES' })
