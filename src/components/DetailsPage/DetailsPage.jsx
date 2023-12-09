@@ -1,4 +1,4 @@
-import { Divider, Skeleton, Stack, Typography } from '@mui/joy'
+import { Button, Divider, Skeleton, Stack, Typography } from '@mui/joy'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
@@ -58,10 +58,9 @@ export default function DetailsPage() {
           </Typography>
         </Item>
       </Stack>
-
-      <button data-testid="toList" onClick={history.goBack}>
+      <Button onClick={history.goBack} data-testid="toList">
         Back to List
-      </button>
+      </Button>
     </main>
   )
 }
