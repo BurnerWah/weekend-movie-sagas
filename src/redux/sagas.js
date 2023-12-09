@@ -4,6 +4,7 @@ import { put, takeEvery } from 'redux-saga/effects'
 function* fetchAllMovies() {
   try {
     // Get the movies:
+    /** @type {import('axios').AxiosResponse<Movie[]>} */
     const moviesResponse = yield axios.get('/api/movies')
     // Set the value of the movies reducer:
     yield put({

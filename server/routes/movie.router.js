@@ -1,10 +1,16 @@
 const { Router } = require('express')
 const pool = require('../modules/pool')
 
+/**
+ * @template {import('pg').QueryResultRow} R
+ * @typedef {import('pg').QueryResult<R>} QueryResult<R>
+ */
+
 const router = Router()
 
 router.get('/', async (req, res) => {
   try {
+    /** @type {QueryResult<Movie>} */
     const result = await pool.query(/*sql*/ `
       SELECT *
       FROM "movies"
@@ -22,6 +28,7 @@ router.post('/', async (req, res) => {
   try {
     // RETURNING "id" will give us back the id of the created movie
     // FIRST QUERY MAKES MOVIE
+    /** @type {QueryResult<{id: number}>} */
     const result = await pool.query(
       /*sql*/ `
         INSERT INTO
