@@ -16,7 +16,9 @@ function MovieList() {
 
   return (
     <main>
-      <Typography level="h2">MovieList</Typography>
+      <Typography level="h2" sx={{ textAlign: 'center' }}>
+        MovieList
+      </Typography>
       <Grid
         container
         spacing={2}

@@ -9,7 +9,9 @@ function App() {
     <CssVarsProvider defaultMode="system">
       <Sheet>
         <div className="App">
-          <Typography level="h1">The Movies Saga!</Typography>
+          <Typography level="h1" sx={{ textAlign: 'center' }}>
+            The Movies Saga!
+          </Typography>
           <Router>
             <Route path="/" exact>
               <MovieList />
