@@ -10,9 +10,11 @@ function App() {
       <CssBaseline />
       <Sheet>
         <div className="App">
-          <Typography level="h1" sx={{ textAlign: 'center' }}>
-            The Movies Saga!
-          </Typography>
+          <header>
+            <Typography level="h1" sx={{ textAlign: 'center' }}>
+              The Movies Saga!
+            </Typography>
+          </header>
           <Router>
             <Route path="/" exact>
               <MovieList />
