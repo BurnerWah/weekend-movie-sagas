@@ -1,6 +1,8 @@
+import { Divider, Skeleton, Stack, Typography } from '@mui/joy'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
+import Item from '../Styled/Item'
 
 export default function DetailsPage() {
   /** @type {Record<string, string | undefined>} */
@@ -18,17 +20,45 @@ export default function DetailsPage() {
     (/** @type {State} */ store) => store.movieDetails,
   )
 
+  const isLoading = useSelector((/** @type {State} */ store) => store.isLoading)
+
   // the movieDetails array *can* be empty, hence the fallback to an empty object
   const { title, poster, description } = movieDetails[0] || {}
   const genres = movieDetails.map((movie) => movie.genre_name)
 
   return (
     <main data-testid="movieDetails">
-      <h1>Details for movie with ID: {id}</h1>
-      <h2>{title}</h2>
-      <img src={poster} alt={title} />
-      <p>{description}</p>
-      <p>Genres: {genres.join(', ')}</p>
+      <Typography level="h2" sx={{ textAlign: 'center' }}>
+        <Skeleton loading={isLoading}>
+          {isLoading ? 'Movie Title' : title}
+        </Skeleton>
+      </Typography>
+      <Divider />
+      <Stack
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}
+      >
+        <Item>
+          <img src={poster} alt={title} />
+        </Item>
+        <Item>
+          <Typography level="body-lg">
+            <Skeleton loading={isLoading}>
+              {isLoading
+                ? 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries.'
+                : description}
+            </Skeleton>
+          </Typography>
+          <Typography level="body-md">
+            <Skeleton loading={isLoading}>
+              {isLoading ? 'Lorem ipsum' : `Genres: ${genres.join(', ')}`}
+            </Skeleton>
+          </Typography>
+        </Item>
+      </Stack>
+
       <button data-testid="toList" onClick={history.goBack}>
         Back to List
       </button>
