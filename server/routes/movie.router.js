@@ -23,6 +23,32 @@ router.get('/', async (req, res) => {
   }
 })
 
+router.get('/:id', async (req, res) => {
+  try {
+    const result = await pool.query(
+      /*sql*/ `
+        SELECT
+	        m.id AS id,
+	        m.title,
+	        m.poster,
+	        m.description,
+	        g.name AS genre_name
+        FROM
+	        movies AS m
+	        INNER JOIN movies_genres AS mg ON m.id = mg.movie_id
+	        INNER JOIN genres AS g ON mg.genre_id = g.id
+        WHERE
+	        m.id = $1;
+      `,
+      [req.params.id],
+    )
+    res.send(result.rows)
+  } catch (error) {
+    console.log('ERROR: Get movie details', error)
+    res.sendStatus(500)
+  }
+})
+
 router.post('/', async (req, res) => {
   console.log(req.body)
   try {
