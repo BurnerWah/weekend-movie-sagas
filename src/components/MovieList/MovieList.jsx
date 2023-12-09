@@ -1,3 +1,4 @@
+import { Grid, Typography } from '@mui/joy'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import MovieItem from '../MovieItem/MovieItem'
@@ -15,12 +16,18 @@ function MovieList() {
 
   return (
     <main>
-      <h1>MovieList</h1>
-      <section className="movies">
+      <Typography level="h2">MovieList</Typography>
+      <Grid
+        container
+        spacing={2}
+        justifyContent="center"
+        alignItems="center"
+        sx={{ flexGrow: 1 }}
+      >
         {movies.map((movie) => (
           <MovieItem key={movie.id} movie={movie} />
         ))}
-      </section>
+      </Grid>
     </main>
   )
 }
