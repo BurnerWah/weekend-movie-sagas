@@ -34,7 +34,10 @@ type SetMovieDetailsAction = ActionWithPayload<
 >
 type ClearMovieDetailsAction = Action<'CLEAR_MOVIE_DETAILS'>
 type FetchMoviesSaga = Action<'SAGA/FETCH_MOVIES'>
-type GetMovieDetailsSaga = ActionWithPayload<'SAGA/GET_MOVIE_DETAILS', number>
+type GetMovieDetailsSaga = ActionWithPayload<
+  'SAGA/GET_MOVIE_DETAILS',
+  number | string
+>
 
 type Actions =
   | SetMoviesAction
