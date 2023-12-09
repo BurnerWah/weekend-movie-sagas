@@ -8,7 +8,7 @@ import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas'
 
 // Create sagaMiddleware
-const sagaMiddleware = createSagaMiddleware()
+const sagas = createSagaMiddleware()
 
 /**
  * Used to store movies returned from the server
@@ -39,16 +39,16 @@ const genres = (state = [], action) => {
 }
 
 // Create one store that all components can use
-const storeInstance = createStore(
+const store = createStore(
   combineReducers({
     movies,
     genres,
   }),
   // Add sagaMiddleware to our store
-  applyMiddleware(sagaMiddleware, logger),
+  applyMiddleware(sagas, logger),
 )
 
 // Pass rootSaga into our sagaMiddleware
-sagaMiddleware.run(rootSaga)
+sagas.run(rootSaga)
 
-export default storeInstance
+export default store
