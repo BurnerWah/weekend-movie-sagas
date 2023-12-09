@@ -9,7 +9,7 @@ function App() {
     <CssVarsProvider defaultMode="system">
       <Sheet>
         <div className="App">
-          <Typography variant="h1">The Movies Saga!</Typography>
+          <Typography level="h1">The Movies Saga!</Typography>
           <Router>
             <Route path="/" exact>
               <MovieList />
