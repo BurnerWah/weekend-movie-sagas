@@ -17,7 +17,7 @@ export default function MovieItem({ movie }) {
       <Link to={`/details/${movie.id}`} data-testid="toDetails">
         <Card sx={{ width: 320, height: 540 }}>
           <CardOverflow>
-            <AspectRatio ratio="0.7">
+            <AspectRatio objectFit="contain" ratio="0.7">
               <img src={movie.poster} alt={movie.title} loading="lazy" />
             </AspectRatio>
           </CardOverflow>
