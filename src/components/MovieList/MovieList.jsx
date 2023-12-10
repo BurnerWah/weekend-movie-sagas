@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/joy'
+import { Breadcrumbs, Grid, Typography } from '@mui/joy'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import MovieItem from '../MovieItem/MovieItem'
@@ -16,6 +16,9 @@ function MovieList() {
 
   return (
     <main>
+      <Breadcrumbs>
+        <Typography>Home</Typography>
+      </Breadcrumbs>
       <Typography level="h2" sx={{ textAlign: 'center' }}>
         MovieList
       </Typography>

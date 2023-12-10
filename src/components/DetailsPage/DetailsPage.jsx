@@ -1,7 +1,14 @@
-import { Button, Divider, Skeleton, Stack, Typography } from '@mui/joy'
+import {
+  Breadcrumbs,
+  Button,
+  Divider,
+  Skeleton,
+  Stack,
+  Typography,
+} from '@mui/joy'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory, useParams } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import Item from '../Styled/Item'
 
 export default function DetailsPage() {
@@ -28,6 +35,12 @@ export default function DetailsPage() {
 
   return (
     <main data-testid="movieDetails">
+      <Breadcrumbs>
+        <Typography>
+          <Link to="/">Home</Link>
+        </Typography>
+        <Typography>{isLoading ? 'Movie Title' : title}</Typography>
+      </Breadcrumbs>
       <Typography level="h2" sx={{ textAlign: 'center' }}>
         <Skeleton loading={isLoading}>
           {isLoading ? 'Movie Title' : title}
