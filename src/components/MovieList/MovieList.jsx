@@ -1,7 +1,7 @@
+import { Breadcrumbs, Grid, Typography } from '@mui/joy'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import MovieItem from '../MovieItem/MovieItem'
-import './MovieList.css'
 
 function MovieList() {
   /** @type {import('redux').Dispatch<Actions>} */
@@ -14,14 +14,25 @@ function MovieList() {
   }, [])
 
   return (
-    <main>
-      <h1>MovieList</h1>
-      <section className="movies">
+    <>
+      <Breadcrumbs>
+        <Typography>Home</Typography>
+      </Breadcrumbs>
+      <Typography level="h2" sx={{ textAlign: 'center' }}>
+        MovieList
+      </Typography>
+      <Grid
+        container
+        spacing={2}
+        justifyContent="center"
+        alignItems="center"
+        sx={{ flexGrow: 1 }}
+      >
         {movies.map((movie) => (
           <MovieItem key={movie.id} movie={movie} />
         ))}
-      </section>
-    </main>
+      </Grid>
+    </>
   )
 }
 

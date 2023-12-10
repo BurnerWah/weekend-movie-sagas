@@ -1,3 +1,10 @@
+import {
+  AspectRatio,
+  Card,
+  CardContent,
+  CardOverflow,
+  Typography,
+} from '@mui/joy'
 import { Link } from 'react-router-dom'
 
 /**
@@ -7,9 +14,17 @@ import { Link } from 'react-router-dom'
 export default function MovieItem({ movie }) {
   return (
     <div data-testid="movieItem">
-      <h3>{movie.title}</h3>
       <Link to={`/details/${movie.id}`} data-testid="toDetails">
-        <img src={movie.poster} alt={movie.title} />
+        <Card sx={{ width: 320, height: 540 }}>
+          <CardOverflow>
+            <AspectRatio objectFit="contain" ratio="0.7">
+              <img src={movie.poster} alt={movie.title} loading="lazy" />
+            </AspectRatio>
+          </CardOverflow>
+          <CardContent>
+            <Typography level="title-lg">{movie.title}</Typography>
+          </CardContent>
+        </Card>
       </Link>
     </div>
   )

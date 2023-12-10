@@ -33,6 +33,7 @@ type SetMovieDetailsAction = ActionWithPayload<
   MovieDetail[]
 >
 type ClearMovieDetailsAction = Action<'CLEAR_MOVIE_DETAILS'>
+type SetIsLoadingAction = ActionWithPayload<'SET_IS_LOADING', boolean>
 type FetchMoviesSaga = Action<'SAGA/FETCH_MOVIES'>
 type GetMovieDetailsSaga = ActionWithPayload<
   'SAGA/GET_MOVIE_DETAILS',
@@ -43,6 +44,7 @@ type Actions =
   | SetMoviesAction
   | SetGenresAction
   | SetMovieDetailsAction
+  | SetIsLoadingAction
   | ClearMovieDetailsAction
   | FetchMoviesSaga
   | GetMovieDetailsSaga
@@ -51,4 +53,5 @@ interface State {
   movies: Movie[]
   genres: Genre[]
   movieDetails: MovieDetail[]
+  isLoading: boolean
 }
