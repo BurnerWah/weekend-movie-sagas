@@ -15,8 +15,15 @@ interface MovieDetail extends Movie {
   genre_name: string
 }
 
-/** Not implemented yet */
-type Genre = unknown
+/** A genre received from the database */
+interface Genre {
+  /** The genre's id */
+  id: number
+  /** The genre's name */
+  name: string
+}
+
+type SubmittedMovie = Omit<Movie, 'id'> & { genre_id: number }
 
 interface Action<T extends string> {
   type: T
@@ -39,6 +46,8 @@ type GetMovieDetailsSaga = ActionWithPayload<
   'SAGA/GET_MOVIE_DETAILS',
   number | string
 >
+type GetGenresSaga = Action<'SAGA/GET_GENRES'>
+type SubmitMovieSaga = ActionWithPayload<'SAGA/SUBMIT_MOVIE', SubmittedMovie>
 
 type Actions =
   | SetMoviesAction
@@ -48,6 +57,8 @@ type Actions =
   | ClearMovieDetailsAction
   | FetchMoviesSaga
   | GetMovieDetailsSaga
+  | GetGenresSaga
+  | SubmitMovieSaga
 
 interface State {
   movies: Movie[]
