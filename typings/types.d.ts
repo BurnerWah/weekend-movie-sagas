@@ -23,6 +23,8 @@ interface Genre {
   name: string
 }
 
+type SubmittedMovie = Omit<Movie, 'id'> & { genre_id: number }
+
 interface Action<T extends string> {
   type: T
 }
