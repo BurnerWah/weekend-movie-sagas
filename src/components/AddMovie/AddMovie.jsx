@@ -37,7 +37,17 @@ export default function AddMovie() {
         </Typography>
         <Typography>Add Movie</Typography>
       </Breadcrumbs>
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          // Genre must be set, and is the only field which can actually be null
+          if (!genre) return
+          dispatch({
+            type: 'SAGA/SUBMIT_MOVIE',
+            payload: { title, poster, description, genre_id: genre },
+          })
+        }}
+      >
         <Typography level="h2" sx={{ textAlign: 'center' }}>
           Add Movie
         </Typography>
