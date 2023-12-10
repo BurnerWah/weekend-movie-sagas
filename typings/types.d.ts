@@ -15,8 +15,13 @@ interface MovieDetail extends Movie {
   genre_name: string
 }
 
-/** Not implemented yet */
-type Genre = unknown
+/** A genre received from the database */
+interface Genre {
+  /** The genre's id */
+  id: number
+  /** The genre's name */
+  name: string
+}
 
 interface Action<T extends string> {
   type: T
