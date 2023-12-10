@@ -44,6 +44,7 @@ type GetMovieDetailsSaga = ActionWithPayload<
   'SAGA/GET_MOVIE_DETAILS',
   number | string
 >
+type GetGenresSaga = Action<'SAGA/GET_GENRES'>
 
 type Actions =
   | SetMoviesAction
@@ -53,6 +54,7 @@ type Actions =
   | ClearMovieDetailsAction
   | FetchMoviesSaga
   | GetMovieDetailsSaga
+  | GetGenresSaga
 
 interface State {
   movies: Movie[]
