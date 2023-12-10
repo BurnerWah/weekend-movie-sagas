@@ -2,7 +2,6 @@ import { Breadcrumbs, Grid, Typography } from '@mui/joy'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import MovieItem from '../MovieItem/MovieItem'
-import './MovieList.css'
 
 function MovieList() {
   /** @type {import('redux').Dispatch<Actions>} */
