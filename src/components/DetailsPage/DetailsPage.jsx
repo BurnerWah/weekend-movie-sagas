@@ -34,46 +34,48 @@ export default function DetailsPage() {
   const genres = movieDetails.map((movie) => movie.genre_name)
 
   return (
-    <main data-testid="movieDetails">
+    <>
       <Breadcrumbs>
         <Typography>
           <Link to="/">Home</Link>
         </Typography>
         <Typography>{isLoading ? 'Movie Title' : title}</Typography>
       </Breadcrumbs>
-      <Typography level="h2" sx={{ textAlign: 'center' }}>
-        <Skeleton loading={isLoading}>
-          {isLoading ? 'Movie Title' : title}
-        </Skeleton>
-      </Typography>
-      <Divider />
-      <Stack
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={2}
-      >
-        <Item>
-          <img src={poster} alt={title} />
-        </Item>
-        <Item>
-          <Typography level="body-lg">
-            <Skeleton loading={isLoading}>
-              {isLoading
-                ? 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries.'
-                : description}
-            </Skeleton>
-          </Typography>
-          <Typography level="body-md">
-            <Skeleton loading={isLoading}>
-              {isLoading ? 'Lorem ipsum' : `Genres: ${genres.join(', ')}`}
-            </Skeleton>
-          </Typography>
-        </Item>
-      </Stack>
-      <Button onClick={history.goBack} data-testid="toList">
-        Back to List
-      </Button>
-    </main>
+      <div data-testid="movieDetails">
+        <Typography level="h2" sx={{ textAlign: 'center' }}>
+          <Skeleton loading={isLoading}>
+            {isLoading ? 'Movie Title' : title}
+          </Skeleton>
+        </Typography>
+        <Divider />
+        <Stack
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={2}
+        >
+          <Item>
+            <img src={poster} alt={title} />
+          </Item>
+          <Item>
+            <Typography level="body-lg">
+              <Skeleton loading={isLoading}>
+                {isLoading
+                  ? 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries.'
+                  : description}
+              </Skeleton>
+            </Typography>
+            <Typography level="body-md">
+              <Skeleton loading={isLoading}>
+                {isLoading ? 'Lorem ipsum' : `Genres: ${genres.join(', ')}`}
+              </Skeleton>
+            </Typography>
+          </Item>
+        </Stack>
+        <Button onClick={history.goBack} data-testid="toList">
+          Back to List
+        </Button>
+      </div>
+    </>
   )
 }

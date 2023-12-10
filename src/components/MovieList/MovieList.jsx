@@ -14,7 +14,7 @@ function MovieList() {
   }, [])
 
   return (
-    <main>
+    <>
       <Breadcrumbs>
         <Typography>Home</Typography>
       </Breadcrumbs>
@@ -32,7 +32,7 @@ function MovieList() {
           <MovieItem key={movie.id} movie={movie} />
         ))}
       </Grid>
-    </main>
+    </>
   )
 }
 

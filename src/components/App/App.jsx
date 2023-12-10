@@ -11,14 +11,16 @@ function App() {
       <Sheet>
         <Header />
         <Router>
-          <Route path="/" exact>
-            <MovieList />
-          </Route>
-          <Route path="/details/:id">
-            <DetailsPage />
-          </Route>
+          <main>
+            <Route path="/" exact>
+              <MovieList />
+            </Route>
+            <Route path="/details/:id">
+              <DetailsPage />
+            </Route>
 
-          {/* Add Movie page */}
+            {/* Add Movie page */}
+          </main>
         </Router>
       </Sheet>
     </CssVarsProvider>
