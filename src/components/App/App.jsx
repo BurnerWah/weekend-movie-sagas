@@ -8,7 +8,7 @@ function App() {
   return (
     <CssVarsProvider defaultMode="system">
       <CssBaseline />
-      <Sheet>
+      <Sheet sx={{ margin: 2 }}>
         <Header />
         <Router>
           <main>
